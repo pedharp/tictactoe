@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+:root {
+  --red-lines: 3px solid red;
+}
+
+body {
+  padding: 60px;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 3% 20% 1fr;
+  place-items: center;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  width: 20%;
+  justify-content: space-around;
+  grid-row: 2;
+}
+
+.game-board {
+  display: grid;
+  grid-row: 3;
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(3, 80px);
+  height: 240px;
+  width: 240px;
+}
+
+.game-board div {
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+  font-weight: bolder;
+  text-align: center;
+  width: 80px;
+  height: 80px;
+}
+
+.game-board div,
+.x-button,
+.o-button {
+  cursor: pointer;
+}
+
+.x-button,
+.o-button,
+.restart {
+  display: flex;
+  margin-bottom: 10px;
+  border: 1px solid red;
+  border-radius: 10px;
+  justify-content: center;
+  padding: 3px;
+  height: 30px;
+  width: 60px;
+}
+
+.restart {
+  align-content: center;
+}
+
+.x-button:hover,
+.o-button:hover {
+  background-color: rgb(96, 202, 113);
+  color: #fff;
+}
+
+.x-button:disabled,
+.o-button:disabled {
+  background-color: rgb(219, 213, 212);
+}
+
+[num="0"],
+[num="1"],
+[num="3"],
+[num="4"] {
+  border-right: var(--red-lines);
+  border-bottom: var(--red-lines);
+}
+
+[num="2"],
+[num="5"] {
+  border-bottom: var(--red-lines);
+}
+
+[num="6"],
+[num="7"] {
+  border-right: var(--red-lines);
+}
+
+.play-again-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: column;
+  position: absolute;
+  top: 40%;
+  visibility: hidden;
+  background-color: rgba(45, 201, 162, 0.507);
+  border: 1px solid #000;
+  border-radius: 10px;
+  height: 150px;
+  width: 200px;
+  padding-bottom: 30px;
+}
+
+.play-again-text {
+  text-align: center;
+  width: calc(100%);
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.yes,
+.no {
+  display: block;
+  background-color: rgba(81, 224, 100, 0.507);
+  border: 1px solid olive;
+  border-radius: 5px;
+  text-align: center;
+  width: 30%;
+}
+.yes:hover,
+.no:hover {
+  cursor: pointer;
+  background-color: rgba(159, 233, 157, 0.507);
+  border-color: rgba(193, 231, 181, 0.507);
+}
+
+h3 {
+  grid-row: 1;
+  margin-bottom: 50px;
+  color: darkcyan;
+}
